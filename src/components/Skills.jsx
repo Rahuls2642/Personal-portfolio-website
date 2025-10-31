@@ -2,14 +2,14 @@ import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaReact, FaNodeJs, FaGitAlt, FaDocker } from "react-icons/fa";
-import { SiNextdotjs, SiMongodb, SiJavascript, SiTypescript, SiFigma } from "react-icons/si";
+import { SiExpress, SiMongodb, SiJavascript, SiTypescript, SiFigma } from "react-icons/si";
 
 
 const defaultSkills = [
   { id: "react", name: "React", category: "frontend", icon: <FaReact className="text-[#61DBFB]" /> },
-  { id: "next", name: "Next.js", category: "frontend", icon: <SiNextdotjs className="text-gray-200" /> },
   { id: "js", name: "JavaScript", category: "frontend", icon: <SiJavascript className="text-yellow-400" /> },
   { id: "ts", name: "TypeScript", category: "frontend", icon: <SiTypescript className="text-blue-500" /> },
+  { id: "express", name: "Express", category: "backend", icon: <SiExpress className="text-[#61DBFB]" /> },
   { id: "node", name: "Node.js", category: "backend", icon: <FaNodeJs className="text-green-500" /> },
   { id: "mongo", name: "MongoDB", category: "backend", icon: <SiMongodb className="text-green-400" /> },
   { id: "git", name: "Git", category: "tool", icon: <FaGitAlt className="text-orange-500" /> },
@@ -50,7 +50,7 @@ export default function Skills({ skills = defaultSkills }) {
       aria-labelledby="skills-heading"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Header + Filters */}
+    
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div>
             <h3 id="skills-heading" className="text-3xl sm:text-4xl font-semibold text-purple-400 mb-1">
@@ -61,23 +61,21 @@ export default function Skills({ skills = defaultSkills }) {
             </p>
           </div>
 
-          {/* Filter buttons */}
+        
           <div className="flex gap-3 bg-transparent p-1 rounded-full">
             {categories.map((cat) => {
               const active = filter === cat.id;
               return (
                 <button
                   key={cat.id}
-                  type="button" // prevents accidental form submits
+                  type="button" 
                   onClick={() => setFilter(cat.id)}
-                  onMouseDown={(e) => e.preventDefault()} // prevents mouse-driven focus jump/scroll
+                  onMouseDown={(e) => e.preventDefault()} 
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 overflow-hidden
                     ${active ? "text-white" : "text-gray-300 hover:text-white"}`}
                   aria-pressed={active}
                 >
-                  {/* The moving pill lives inside the button now.
-                      pointer-events none so it doesn't capture clicks.
-                      no negative z-index — avoids layout / scrollbar weirdness. */}
+                  
                   {active && (
                     <motion.span
                       layoutId="active-pill"
@@ -87,7 +85,6 @@ export default function Skills({ skills = defaultSkills }) {
                     />
                   )}
 
-                  {/* label sits on top */}
                   <span className="relative z-10">{cat.label}</span>
                 </button>
               );
@@ -95,7 +92,7 @@ export default function Skills({ skills = defaultSkills }) {
           </div>
         </div>
 
-        {/* Grid */}
+        
         <motion.div
           initial={{ opacity: 0, y: 26 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -119,7 +116,7 @@ export default function Skills({ skills = defaultSkills }) {
   {typeof s.icon === "string" ? (
     <img src={s.icon} alt={s.name} className="w-9 h-9 object-contain" />
   ) : (
-    <span className="text-3xl">{s.icon}</span>  // for react-icons
+    <span className="text-3xl">{s.icon}</span> 
   )}
 </div>
 
@@ -135,7 +132,6 @@ export default function Skills({ skills = defaultSkills }) {
           </AnimatePresence>
         </motion.div>
 
-        {/* Empty state */}
         {filtered.length === 0 && (
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-8 text-sm text-gray-500 text-center">
             No skills in this category yet.

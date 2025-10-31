@@ -1,22 +1,9 @@
 @import "tailwindcss";
-/* GLOBAL: hide scrollbar across the site (keeps scrolling) */
-.hide-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
 
-/* Optional: subtle focus outline for accessibility */
-a:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
-  border-radius: 9999px;
-}
+
 html, body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; 
+  scrollbar-width: none;    
 }
 
 html::-webkit-scrollbar,

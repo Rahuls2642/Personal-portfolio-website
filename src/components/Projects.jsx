@@ -1,8 +1,9 @@
 import React from "react";
 import geminiIMG from '../assets/image.png'
+import Portfolio from '../assets/Portfolio.png'
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaCss3Alt ,FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import {
   SiReact,
   SiNextdotjs,
@@ -13,11 +14,7 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 
-/**
- * Projects - responsive section with alternating project cards
- *
- * Replace image paths, liveUrl, repoUrl, and tech list for each project.
- */
+
 
 const projects = [
   {
@@ -26,27 +23,27 @@ const projects = [
     tagline: "Featured Project",
     description:
       "A powerful, interactive web application simulating the core conversational and generative capabilities of the Gemini model. Engage in real-time chat, generate creative content (like stories, poems, or scripts), perform complex code generation tasks, and get grounded, up-to-date answers by leveraging integrated web search.",
-    image: geminiIMG, // replace with your image path
+    image: geminiIMG, 
     imageAlt: "project template",
     liveUrl: "https://verdant-mochi-207a94.netlify.app",
     repoUrl: "https://github.com/Rahuls2642/Gemini-clone-2",
-    tech: ["React", "Node.js"],
+    tech: ["React", "Node.js","CSS"],
   },
   {
     id: "p2",
-    title: "Another Project",
+    title: "Personal Portfolio",
     tagline: "Featured Project",
     description:
-      "An accessible, responsive UI that connects to third-party APIs to deliver personalized recommendations and insights.",
-    image: "/projects/mockup2.png",
+      "A responsive and accessible website built to showcase my work as a web developer. Designed with a clean layout and smooth interactions using React, TypeScript, and Tailwind CSS.",
+    image: Portfolio,
     imageAlt: "Another project mockup",
     liveUrl: "#",
     repoUrl: "#",
-    tech: ["Next.js", "MongoDB", "TypeScript"],
+    tech: ["React", "Tailwind","Node.js"],
   },
 ];
 
-// small mapping to icon components for tech row
+
 const techIcons = {
   React: <SiReact className="text-2xl" />,
   "Next.js": <SiNextdotjs className="text-2xl" />,
@@ -55,6 +52,7 @@ const techIcons = {
   "Node.js": <SiNodedotjs className="text-2xl" />,
   MongoDB: <SiMongodb className="text-2xl" />,
   Tailwind: <SiTailwindcss className="text-2xl" />,
+  CSS:<FaCss3Alt className="text-2xl" /> 
 };
 
 export default function Projects() {
@@ -66,7 +64,7 @@ export default function Projects() {
       ref={ref}
       className="relative bg-[#0b001a] text-white py-24 px-6 overflow-hidden"
     >
-      {/* soft background glow */}
+   
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-20 -left-24 w-[700px] h-[700px] rounded-full bg-purple-700/10 blur-3xl" />
         <div className="absolute -bottom-40 right-20 w-[520px] h-[520px] rounded-full bg-purple-600/10 blur-3xl" />
@@ -94,7 +92,7 @@ export default function Projects() {
                     isEven ? "md:grid-flow-col" : "md:grid-flow-col-dense"
                   }`}
                 >
-                  {/* Text block - callout */}
+                
                   <div
                     className={`md:col-span-6 ${
                       isEven ? "md:order-1" : "md:order-2"
@@ -138,7 +136,7 @@ export default function Projects() {
                         </a>
                       </div>
 
-                      {/* tech row */}
+          
                       <div className="mt-6 flex flex-wrap items-center gap-3">
                         {p.tech.map((t) => (
                           <div
@@ -154,7 +152,7 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    {/* decorative gradient callout behind the text (rounded pill) */}
+                  
                     <div
                       aria-hidden
                       className={`absolute -inset-3 rounded-2xl blur-[60px] ${
@@ -168,7 +166,6 @@ export default function Projects() {
                     />
                   </div>
 
-                  {/* Image mockup */}
                   <div
                     className={`md:col-span-6 ${
                       isEven ? "md:order-2" : "md:order-1"
@@ -184,7 +181,7 @@ export default function Projects() {
                         />
                       </div>
 
-                      {/* Thin purple frame behind image for depth */}
+                     
                       <div
                         aria-hidden
                         className="absolute -inset-2 rounded-xl"

@@ -1,11 +1,11 @@
 import React from "react";
 import {motion} from 'framer-motion'
- // ce with your image
+
 import avatar from '../assets/Me.png'
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center bg-[#0b001a] text-white text-center px-6 overflow-hidden relative">
-  {/* Avatar */}
+  
   <motion.div
     className="relative"
     initial={{ opacity: 0, y: 30 }}
@@ -39,7 +39,7 @@ const HeroSection = () => {
     />
   </motion.div>
 
-  {/* Title */}
+  
   <motion.div
     className="mt-8"
     initial={{ opacity: 0, y: 20 }}
@@ -54,7 +54,7 @@ const HeroSection = () => {
     </p>
   </motion.div>
 
-  {/* Description */}
+
   <motion.p
     className="max-w-xl text-gray-400 mt-6 leading-relaxed text-sm sm:text-base"
     initial={{ opacity: 0, y: 20 }}
@@ -65,7 +65,6 @@ const HeroSection = () => {
     good, perform well, and make a real difference.
   </motion.p>
 
-  {/* View My Work Button */}
   <motion.div
     className="mt-8"
     initial={{ opacity: 0, y: 20 }}
@@ -80,7 +79,6 @@ const HeroSection = () => {
     </a>
   </motion.div>
 
-  {/* Scroll Down Indicator */}
   <div className="absolute bottom-6 flex flex-col items-center space-y-2">
     <p className="text-gray-500 text-sm">Scroll Down</p>
     <div className="w-6 h-10 border-2 border-purple-500 rounded-full flex justify-center items-start p-1">

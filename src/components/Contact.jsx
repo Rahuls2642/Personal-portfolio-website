@@ -22,7 +22,6 @@ export default function Contact() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    // simple client-side validation
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       setStatus({
         loading: false,
@@ -32,7 +31,6 @@ export default function Contact() {
       return;
     }
 
-    // honeypot — if filled, silently drop
     if (form.honey) {
       setStatus({ loading: false, ok: false, msg: "Spam detected." });
       return;
@@ -40,7 +38,6 @@ export default function Contact() {
 
     setStatus({ loading: true, ok: null, msg: "" });
 
-    // try server endpoint
     try {
       const res = await fetch("https://formspree.io/f/mldoppwq", {
         method: "POST",
@@ -58,17 +55,17 @@ export default function Contact() {
         return;
       }
 
-      // fallback to mailto if server returns non-OK
+      
       throw new Error("server error");
     } catch (err) {
-      // mailto fallback (opens user's mail client)
+     
       const subject = encodeURIComponent(`Contact from ${form.name}`);
       const body = encodeURIComponent(
         `${form.message}\n\n— ${form.name} (${form.email})`
       );
       window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 
-      // still update UI so user sees something
+   
       setStatus({
         loading: false,
         ok: true,
@@ -111,7 +108,7 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          {/* Left: info + socials + tech / quick details */}
+       
           <div className="space-y-6">
             <div className="bg-white/3 p-6 rounded-2xl border border-purple-800/10">
               <h3 className="text-lg font-medium text-gray-100 mb-2">
@@ -139,7 +136,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Small contact details / socials */}
             <div className="p-4 rounded-2xl border border-purple-800/8 bg-[#0b001a]/40">
               <div className="text-sm text-gray-300">Email</div>
               <a
@@ -198,7 +194,6 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right: contact form */}
           <motion.form
             onSubmit={handleSubmit}
             className="bg-white/4 p-6 rounded-2xl border border-purple-800/12"
@@ -207,7 +202,7 @@ export default function Contact() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             aria-label="Contact form"
           >
-            {/* honeypot - invisible to users */}
+           
             <input
               type="text"
               name="honey"
@@ -268,7 +263,7 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={() => {
-                  // quick mailto fallback
+                  
                   const subject = encodeURIComponent("Quick message");
                   window.location.href = `mailto:${contactEmail}?subject=${subject}`;
                 }}
@@ -278,7 +273,7 @@ export default function Contact() {
               </button>
             </div>
 
-            {/* status */}
+           
             {status.msg && (
               <div
                 role="status"

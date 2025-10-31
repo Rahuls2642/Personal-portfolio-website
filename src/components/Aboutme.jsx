@@ -19,12 +19,10 @@ export default function About() {
         transition={{ duration: 1, ease: "easeOut" }}
         className="max-w-3xl"
       >
-        {/* Heading */}
         <h2 className="text-3xl sm:text-4xl font-semibold text-purple-400 mb-6 tracking-tight">
           About Me
         </h2>
 
-        {/* Paragraph 1 */}
         <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
           I'm <span className="text-purple-400 font-medium">Rahul Singh</span>, a
           Full Stack Developer who loves creating clean, efficient, and
@@ -32,7 +30,6 @@ export default function About() {
           thoughtful design and solid engineering.
         </p>
 
-        {/* Paragraph 2 */}
         <p className="text-gray-400 mt-5 text-sm sm:text-base leading-relaxed">
           My current toolkit includes{" "}
           <span className="text-purple-400 font-medium">
@@ -42,7 +39,6 @@ export default function About() {
           smoother and smarter.
         </p>
 
-        {/* Buttons */}
         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
           <a
             href="#contact"

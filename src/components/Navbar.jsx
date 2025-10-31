@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#0b001a]/80 backdrop-blur-md border-b border-purple-800/20">
       <nav className="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
-        {/* Logo / Brand */}
+     
         <a href="#" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold">
             R
@@ -22,7 +22,7 @@ export default function Navbar() {
           <span className="text-white font-medium text-lg">Rahul</span>
         </a>
 
-        {/* Desktop Links */}
+       
         <ul className="hidden md:flex gap-8">
           {links.map((link) => (
             <li key={link.href}>
@@ -36,7 +36,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Resume Button (Desktop) */}
+        
         <div className="hidden md:block">
           <a
             href="https://drive.google.com/uc?export=download&id=1R-Q-x3iEAOBvzIpI3isUhxwwnH-U_NCM"
@@ -46,7 +46,6 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-gray-300 hover:text-white focus:outline-none"
@@ -77,7 +76,7 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+    
       {open && (
         <div className="md:hidden bg-[#0b001a]/95 border-t border-purple-800/20">
           <ul className="flex flex-col items-center gap-4 py-4">
