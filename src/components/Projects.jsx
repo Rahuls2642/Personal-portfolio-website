@@ -37,8 +37,8 @@ const projects = [
       "A responsive and accessible website built to showcase my work as a web developer. Designed with a clean layout and smooth interactions using React, TypeScript, and Tailwind CSS.",
     image: Portfolio,
     imageAlt: "Another project mockup",
-    liveUrl: "#",
-    repoUrl: "#",
+    liveUrl: "https://bejewelled-crostata-952167.netlify.app/",
+    repoUrl: "https://github.com/Rahuls2642/Personal-portfolio-website",
     tech: ["React", "Tailwind","Node.js"],
   },
 ];
