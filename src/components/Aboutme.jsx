@@ -47,7 +47,7 @@ export default function About() {
             Get in Touch
           </a>
           <a
-            href="https://drive.google.com/uc?export=download&id=1R-Q-x3iEAOBvzIpI3isUhxwwnH-U_NCM" // replace with your actual CV file path
+            href="https://drive.google.com/uc?export=download&id=1sbnoozvTSEbAmBFSpHE5tJLcjJYnhORk" // replace with your actual CV file path
             download
             className="border border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white font-medium px-6 py-3 rounded-full transition-all duration-300"
           >

@@ -39,7 +39,7 @@ export default function Navbar() {
         
         <div className="hidden md:block">
           <a
-            href="https://drive.google.com/uc?export=download&id=1R-Q-x3iEAOBvzIpI3isUhxwwnH-U_NCM"
+            href="https://drive.google.com/uc?export=download&id=1sbnoozvTSEbAmBFSpHE5tJLcjJYnhORk"
             className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-semibold px-4 py-2 rounded-full"
           >
             Resume

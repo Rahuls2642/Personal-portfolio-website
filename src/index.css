@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+.motion-safe-transform {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
 
 html, body {
   -ms-overflow-style: none; 

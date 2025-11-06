@@ -1,10 +1,10 @@
 import React from "react";
-import Moviecine from '../assets/Moviecine.png'
-import geminiIMG from '../assets/image.png'
-import Portfolio from '../assets/Portfolio.png'
+import Moviecine from "../assets/Moviecine.png";
+import geminiIMG from "../assets/image.png";
+import Portfolio from "../assets/Portfolio.png";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaCss3Alt ,FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { FaCss3Alt, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import {
   SiReact,
   SiNextdotjs,
@@ -15,11 +15,8 @@ import {
   SiTailwindcss,
   SiPostman,
   SiExpress,
-  SiGithub
-  
+  SiGithub,
 } from "react-icons/si";
-
-
 
 const projects = [
   {
@@ -27,39 +24,38 @@ const projects = [
     title: "Movie cine",
     tagline: "Featured Project",
     description:
-      "Moviecine is a full-stack movie web application built with the MERN stack (MongoDB, Express, React, Node.js) that lets users explore movies, manage a personalized watchlist, mark watched movies, and write reviews — all in a clean, cinematic interface.The app features secure authentication with JWT, real-time interaction between the frontend and backend, and a responsive, modern design built using Tailwind CSS.It connects with the TMDb API to fetch live movie data and stores all user-related actions (watchlist, watched, reviews) in MongoDB.",
-    image: Moviecine, 
-    imageAlt: "project template",
+      "Moviecine is a full-stack movie web application built with the MERN stack (MongoDB, Express, React, Node.js) that lets users explore movies, manage a personalized watchlist, mark watched movies, and write reviews — all in a clean, cinematic interface. It connects with the TMDb API to fetch live movie data and stores all user-related actions (watchlist, watched, reviews) in MongoDB.",
+    image: Moviecine,
+    imageAlt: "Movie cine project preview",
     liveUrl: "https://movie-cine-frontend-jp1t.onrender.com/",
     repoUrl: "https://github.com/Rahuls2642/Movie-cine",
-    tech: ["React","Tailwind","Node.js","MongoDB","Express","Postman","Github"],
+    tech: ["React", "Tailwind", "Node.js", "MongoDB", "Express", "Postman", "Github"],
   },
   {
     id: "p2",
     title: "Gemini Clone",
     tagline: "Featured Project",
     description:
-      "A powerful, interactive web application simulating the core conversational and generative capabilities of the Gemini model. Engage in real-time chat, generate creative content (like stories, poems, or scripts), perform complex code generation tasks, and get grounded, up-to-date answers by leveraging integrated web search.",
-    image: geminiIMG, 
-    imageAlt: "project template",
+      "An interactive web application that simulates the Gemini model’s core features — real-time chat, creative text generation, and live web-integrated answers.",
+    image: geminiIMG,
+    imageAlt: "Gemini clone project preview",
     liveUrl: "https://verdant-mochi-207a94.netlify.app",
     repoUrl: "https://github.com/Rahuls2642/Gemini-clone-2",
-    tech: ["React", "Node.js","CSS"],
+    tech: ["React", "Node.js", "CSS"],
   },
   {
     id: "p3",
     title: "Personal Portfolio",
     tagline: "Featured Project",
     description:
-      "A responsive and accessible website built to showcase my work as a web developer. Designed with a clean layout and smooth interactions using React, TypeScript, and Tailwind CSS.",
+      "A responsive and accessible portfolio site designed to highlight my work and technical skills, built with React, TypeScript, and Tailwind CSS.",
     image: Portfolio,
-    imageAlt: "Another project mockup",
+    imageAlt: "Portfolio project preview",
     liveUrl: "https://bejewelled-crostata-952167.netlify.app/",
     repoUrl: "https://github.com/Rahuls2642/Personal-portfolio-website",
-    tech: ["React", "Tailwind","Node.js"],
+    tech: ["React", "Tailwind", "Node.js"],
   },
 ];
-
 
 const techIcons = {
   React: <SiReact className="text-2xl" />,
@@ -71,8 +67,8 @@ const techIcons = {
   Tailwind: <SiTailwindcss className="text-2xl" />,
   Postman: <SiPostman className="text-2xl" />,
   Express: <SiExpress className="text-2xl" />,
-   Github: <SiGithub className="text-2xl" />,
-  CSS:<FaCss3Alt className="text-2xl" /> 
+  Github: <SiGithub className="text-2xl" />,
+  CSS: <FaCss3Alt className="text-2xl" />,
 };
 
 export default function Projects() {
@@ -84,12 +80,19 @@ export default function Projects() {
       ref={ref}
       className="relative bg-[#0b001a] text-white py-24 px-6 overflow-hidden"
     >
-   
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-20 -left-24 w-[700px] h-[700px] rounded-full bg-purple-700/10 blur-3xl" />
-        <div className="absolute -bottom-40 right-20 w-[520px] h-[520px] rounded-full bg-purple-600/10 blur-3xl" />
+      {/* --- Background Layers --- */}
+      <div className="absolute inset-0 -z-10">
+        {/* Base neutral dark layer to prevent purple tint */}
+        <div className="absolute inset-0 bg-[#0b001a]" />
+
+        {/* Soft purple glow with proper blending */}
+        <div className="absolute inset-0 pointer-events-none mix-blend-soft-light opacity-60 isolate">
+          <div className="absolute -top-60 -left-40 w-[700px] h-[700px] rounded-full bg-purple-900/15 blur-[120px]" />
+          <div className="absolute bottom-0 right-0 w-[800px] h-[800px] rounded-full bg-purple-700/10 blur-[150px]" />
+        </div>
       </div>
 
+      {/* --- Content --- */}
       <div className="max-w-6xl mx-auto relative z-10">
         <h2 className="text-3xl sm:text-4xl font-semibold text-gray-100 mb-12">
           Selected Projects
@@ -104,7 +107,7 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.08 * idx, ease: "easeOut" }}
-                className="w-full"
+                className="w-full will-change-transform"
                 aria-labelledby={`proj-${p.id}-title`}
               >
                 <div
@@ -112,7 +115,7 @@ export default function Projects() {
                     isEven ? "md:grid-flow-col" : "md:grid-flow-col-dense"
                   }`}
                 >
-                
+                  {/* --- Text Section --- */}
                   <div
                     className={`md:col-span-6 ${
                       isEven ? "md:order-1" : "md:order-2"
@@ -156,12 +159,11 @@ export default function Projects() {
                         </a>
                       </div>
 
-          
                       <div className="mt-6 flex flex-wrap items-center gap-3">
                         {p.tech.map((t) => (
                           <div
                             key={t}
-                            className="flex items-center gap-2 bg-white/3 px-3 py-1 rounded-full text-xs text-gray-100"
+                            className="flex items-center gap-2 bg-white/5 px-3 py-1 rounded-full text-xs text-gray-100"
                           >
                             <span className="flex items-center justify-center w-5 h-5">
                               {techIcons[t] ?? <span className="text-xs">•</span>}
@@ -171,37 +173,26 @@ export default function Projects() {
                         ))}
                       </div>
                     </div>
-
-                  
-                    <div
-                      aria-hidden
-                      className={`absolute -inset-3 rounded-2xl blur-[60px] ${
-                        isEven ? "left-0" : "right-0"
-                      }`}
-                      style={{
-                        background:
-                          "linear-gradient(90deg, rgba(124,58,237,0.14) 0%, rgba(79,70,229,0.08) 60%)",
-                        zIndex: -10,
-                      }}
-                    />
                   </div>
 
+                  {/* --- Image Section --- */}
                   <div
                     className={`md:col-span-6 ${
                       isEven ? "md:order-2" : "md:order-1"
                     } flex justify-center md:justify-end`}
                   >
                     <div className="relative w-full md:max-w-2xl">
-                      <div className="rounded-xl overflow-hidden shadow-2xl border border-purple-900/20">
+                      <div className="rounded-xl overflow-hidden shadow-2xl border border-purple-900/20 bg-[#0b001a]">
                         <img
                           src={p.image}
                           alt={p.imageAlt}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-auto object-cover block"
                           style={{ minHeight: 220 }}
                         />
                       </div>
 
-                     
                       <div
                         aria-hidden
                         className="absolute -inset-2 rounded-xl"
