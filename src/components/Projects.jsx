@@ -1,4 +1,5 @@
 import React from "react";
+import Moviecine from '../assets/Moviecine.png'
 import geminiIMG from '../assets/image.png'
 import Portfolio from '../assets/Portfolio.png'
 import { motion } from "framer-motion";
@@ -12,6 +13,10 @@ import {
   SiNodedotjs,
   SiMongodb,
   SiTailwindcss,
+  SiPostman,
+  SiExpress,
+  SiGithub
+  
 } from "react-icons/si";
 
 
@@ -19,6 +24,18 @@ import {
 const projects = [
   {
     id: "p1",
+    title: "Movie cine",
+    tagline: "Featured Project",
+    description:
+      "Moviecine is a full-stack movie web application built with the MERN stack (MongoDB, Express, React, Node.js) that lets users explore movies, manage a personalized watchlist, mark watched movies, and write reviews — all in a clean, cinematic interface.The app features secure authentication with JWT, real-time interaction between the frontend and backend, and a responsive, modern design built using Tailwind CSS.It connects with the TMDb API to fetch live movie data and stores all user-related actions (watchlist, watched, reviews) in MongoDB.",
+    image: Moviecine, 
+    imageAlt: "project template",
+    liveUrl: "https://movie-cine-frontend-jp1t.onrender.com/",
+    repoUrl: "https://github.com/Rahuls2642/Movie-cine",
+    tech: ["React","Tailwind","Node.js","MongoDB","Express","Postman","Github"],
+  },
+  {
+    id: "p2",
     title: "Gemini Clone",
     tagline: "Featured Project",
     description:
@@ -30,7 +47,7 @@ const projects = [
     tech: ["React", "Node.js","CSS"],
   },
   {
-    id: "p2",
+    id: "p3",
     title: "Personal Portfolio",
     tagline: "Featured Project",
     description:
@@ -52,6 +69,9 @@ const techIcons = {
   "Node.js": <SiNodedotjs className="text-2xl" />,
   MongoDB: <SiMongodb className="text-2xl" />,
   Tailwind: <SiTailwindcss className="text-2xl" />,
+  Postman: <SiPostman className="text-2xl" />,
+  Express: <SiExpress className="text-2xl" />,
+   Github: <SiGithub className="text-2xl" />,
   CSS:<FaCss3Alt className="text-2xl" /> 
 };
 
